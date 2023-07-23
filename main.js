@@ -1,1 +1,3 @@
-import './style.scss';
+import './styles/global.scss';
+import './styles/hero.scss';
+import './styles/calculator.scss';

@@ -1,0 +1,192 @@
+@import './vars.scss';
+
+.calc-container {
+  display: grid;
+  margin: 40px clamp(30px, 6vw, 160px);
+  width: auto;
+  flex-grow: 1;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: auto 3rem;
+  gap: 25px;
+
+  & > * { border-radius: 6px; }
+
+  @media screen and (max-width: $desktop-s) {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+.calc-box, .values-box {
+  background-color: var(--box-bg-clr);
+  border: 1px solid var(--box-str-clr);
+  border-top-color: var(--primary);
+  border-top-width: 2px;
+  padding: 40px 80px;
+}
+
+.calc-box {
+  display: grid;
+  grid-template-columns: repeat(2, min-content);
+  grid-template-rows: repeat(2, min-content);
+  place-content: center;
+  row-gap: 20px;
+  column-gap: 60px;
+
+  @media screen and (max-width: $desktop-l) {
+    column-gap: 40px;
+  }
+
+  @media screen and (max-width: $desktop-s) {
+    column-gap: 20px;
+  }
+}
+
+.values-box {
+  @media screen and (max-width: $desktop-s) {
+    display: none;
+  }
+}
+
+.btn {
+  grid-column: 1/3;
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: background-color 80ms ease-in-out;
+
+  @media screen and (max-width: $desktop-s) {
+    grid-column: auto;
+  }
+}
+
+.btn:hover {
+  background-color: darken($primary, 10);
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  color: $secondary;
+  width: 10rem;
+
+  &.gender {
+    width: auto;
+    grid-row: 1/3;
+    justify-self: end;
+    align-self: center;
+  }
+  
+  &.height {
+    justify-self: start;
+    align-self: end;
+  }
+
+  &.weight {
+    place-self: start;
+  }
+
+  .input-wrapper {
+    position: relative;
+  }
+
+  input[type="text"] {
+    border-radius: 5px;
+    border: 1px solid $input-str-clr;
+    padding: 10px 15px;
+    font-size: .9rem;
+    width: 100%;
+    padding-right: 60px;
+
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.3);
+    }
+    
+    & + .unit {
+      display: block;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: .9rem;
+      color: rgba(0, 0, 0, 0.5);
+      user-select: none;
+    }
+  }
+
+  & > label,
+  & > .radio-legend {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  & > .radio-option {
+    font-size: .9rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+  }
+
+  & > .radio-option > label  {
+    padding-left: 8px;
+    user-select: none;
+  }
+
+}
+
+
+
+
+input[type="radio"] {
+  appearance: none;
+  background-color: transparent;
+  margin: 0;
+  width: 2.2em;
+  aspect-ratio: 1;
+  background-color: #fff;
+  border: 1px solid $input-str-clr;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="radio"]::before {
+  content: '';
+  display: block;
+  transform: scale(0);
+  background-color: $secondary;
+  width: 40%;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  transition: transform 120ms ease-out;
+  transform-origin: center;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="radio"]:checked {
+  border-color: $secondary;
+}
+
+input {
+  transition: border-color 80ms ease-out;
+}
+
+input:hover, input[type="text"]:hover {
+  border-color: darken($input-str-clr, 30);
+}
+
+input:focus, input[type="text"]:focus {
+  border-color: $secondary;
+  outline: none;
+}

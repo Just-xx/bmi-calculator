@@ -25,11 +25,37 @@
             <span class="deco-mobile"><img src="/dots_var2.svg" alt=""></span>
           </div>
         </section>
-        <section class="calc-container">
-          <div class="calc-box"></div>
+        <form class="calc-container">
+          <main class="calc-box">
+            <div class="input gender">
+              <div class="radio-legend">Gender</div>
+              <div class="radio-option">
+                <input type="radio" name="gender" id="male">
+                <label for="male">Male</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="gender" id="female">
+                <label for="female">Female</label>
+              </div>
+            </div>
+            <div class="input height">
+              <label for="height">Height</label>
+              <div class="input-wrapper">
+                <input placeholder="100" id="height" type="text">
+                <span class="unit">cm</span>
+              </div>
+            </div>
+            <div class="input weight">
+              <label for="weight">Weight</label>
+              <div class="input-wrapper">
+                <input placeholder="50" id="weight" type="text">
+                <span class="unit">kg</span>
+              </div>
+            </div>
+          </main>
           <div class="values-box"></div>
-          <button class="btn">calculate</button>
-        </section>
+          <button class="btn">Calculate</button>
+        </form>
     </div>
     <script type="module" src="/main.js"></script>
   </body>

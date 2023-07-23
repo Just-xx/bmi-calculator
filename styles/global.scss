@@ -1,0 +1,30 @@
+:root {
+  --primary: #E83D2B;
+  --secondary: #290707;
+  --input-str-clr: #B99C99;
+  --box-bg-clr: #FCF9F9;
+  --box-str-clr: #EBD6D4;
+
+  --desktop-margin: 160px;
+  --mobile-margin: 40px;
+}
+
+html, body {
+  background-color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 19px;
+  margin: 0;
+}
+
+body, html, #app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
