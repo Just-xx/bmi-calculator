@@ -2,12 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>BMI Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+        <section class="hero">
+          <div class="headline-wrapper">
+            <h1 class="hero-title">BMI Calculator</h1>
+            <p class="hero-p">The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while taking age into consideration. Use the "Metric Units" tab for the International System of Units or the "Other Units" tab to convert units into either US or metric units. Note that the calculator also computes the Ponderal Index in addition to BMI, both of which are discussed below in detail.</p>
+          </div>
+          <img src="/illustration.svg" class="illustration" alt="medic">
+          <div class="decoration">
+            <span><img src="/circles_var1.svg" alt=""></span>
+            <span><img src="/circles_var2.svg" alt=""></span>
+            <span><img src="/dots_var1.svg" alt=""></span>
+            <span><img src="/dots_var2.svg" alt=""></span>
+            <span class="deco-mobile"><img src="/circles_var1.svg" alt=""></span>
+            <span class="deco-mobile"><img src="/dots_var2.svg" alt=""></span>
+          </div>
+        </section>
+        <section class="calc-container">
+          <div class="calc-box"></div>
+          <div class="values-box"></div>
+          <button class="btn">calculate</button>
+        </section>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
