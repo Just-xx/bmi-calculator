@@ -5,16 +5,20 @@
   margin: 40px clamp(30px, 6vw, 160px);
   width: auto;
   flex-grow: 1;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: 3fr 4fr;
   grid-template-rows: auto 3rem;
   gap: 25px;
 
   & > * { border-radius: 6px; }
 
+
+  @media screen and (max-width: 1315px) {
+    grid-template-columns: 3fr 2fr;
+  }
+
   @media screen and (max-width: $desktop-s) {
     grid-template-columns: 1fr;
   }
-
 }
 
 .calc-box, .values-box {
@@ -37,14 +41,11 @@
     column-gap: 40px;
   }
 
-  @media screen and (max-width: $desktop-s) {
-    column-gap: 20px;
-  }
-}
-
-.values-box {
-  @media screen and (max-width: $desktop-s) {
-    display: none;
+  @media screen and (max-width: $tablet) {
+    row-gap: 30px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, min-content);
+    padding: 2rem;
   }
 }
 
@@ -87,6 +88,14 @@
 
   &.weight {
     place-self: start;
+  }
+
+  @media screen and (max-width: $tablet) {
+    &.weight,
+    &.height,
+    &.gender  {
+      place-self: start;
+    }
   }
 
   .input-wrapper {
@@ -136,6 +145,28 @@
   & > .radio-option > label  {
     padding-left: 8px;
     user-select: none;
+  }
+
+  @media screen and (max-width: $desktop-l) {
+    width: 200px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: $mobile-l) {
+
+    & > label,
+    & > .radio-legend {
+      font-size: 1.3rem;
+    }
+
+    & > .radio-option,
+    & input[type="text"],
+    & input[type="text"] + .unit {
+      font-size: 1.2rem;
+    }
   }
 
 }
@@ -189,4 +220,113 @@ input:hover, input[type="text"]:hover {
 input:focus, input[type="text"]:focus {
   border-color: $secondary;
   outline: none;
+}
+
+.values-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: $desktop-s) {
+    display: none;
+  }
+
+  h3 {
+    margin-bottom: 1.3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    transform: translateX(-5px);
+  }
+
+  .values {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-template-rows: repeat(4, 1fr);
+    grid-auto-flow: column;
+    column-gap: 80px;
+    row-gap: 1em;
+
+    
+    @media screen and (max-width: $desktop-l) {
+      row-gap: .8em;
+      column-gap: 18px;
+    }
+
+    @media screen and (max-width: 1315px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(8, 1fr);
+    }
+  }
+
+  .values > li::marker {
+    font-size: 0;
+    visibility: hidden;
+    color: transparent;
+  }
+
+  .values > li {
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    font-size: .85rem;
+    line-height: 110%;
+    white-space: nowrap;
+
+    @media screen and (max-width: $desktop-l) {
+      font-size: .8rem;
+    }
+  }
+
+  .values > li::before {
+    content: '';
+    width: .7em;
+    aspect-ratio: 1;
+    background-color: var(--dot-clr);
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
+.values-box.mobile {
+  display: none;
+  padding: 40px clamp(30px, 6vw, 160px);;
+
+  .values {
+    row-gap: 1em;
+    column-gap: 40px;
+    grid-template-columns: repeat(2, min-content);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  li {
+    font-size: .9rem;
+  }
+
+  @media screen and (max-width: $tablet) {
+    .mobile-values-wrapper {
+      flex-grow: 1;
+    }
+
+    .values {
+      grid-template-columns: min-content;
+      grid-template-rows: repeat(8, 1fr);
+    }
+  }
+
+  @media screen and (max-width: $mobile-l) {
+
+    h3 {
+      font-size: 1.3rem;
+    }
+
+    li {
+      font-size: 1.1rem;
+    }
+  }
+  
+
+  @media screen and (max-width: $desktop-s) {
+    display: flex;
+  }
 }
