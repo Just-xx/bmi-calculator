@@ -85,6 +85,10 @@ const toDefaultState = () => {
 
 }
 
+
+// remove input error class if on focus occured 
+[inputHeight, inputWeight].forEach(input => input.addEventListener('focus', () => {input.classList.contains('input-error') && input.classList.remove('input-error');}))
+
 const handleForm = () => {
   let fieldEmpty = [];
   let wrongValue = [];
@@ -108,9 +112,12 @@ const handleForm = () => {
     const bmi = (weightVal / Math.pow(heightVal/100, 2)).toFixed(2);
     setResult(bmi);
     toResultState();
+    return;
   }
-}
 
+  if (fieldEmpty.includes("HEIGHT") || wrongValue.includes("HEIGHT")) inputHeight.classList.add('input-error');
+  if (fieldEmpty.includes("WEIGHT") || wrongValue.includes("WEIGHT")) inputWeight.classList.add('input-error');
+}
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -121,5 +128,13 @@ form.addEventListener('submit', e => {
     window.location.replace('#calculator');
     toDefaultState();
   }
-  
 })
+
+
+const checkLocation = () => {
+  if (window.location.hash === "#result") {
+    window.location.replace("#");
+  }
+}
+
+checkLocation();

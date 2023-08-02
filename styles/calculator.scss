@@ -93,6 +93,7 @@
     place-self: start;
   }
 
+
   @media screen and (max-width: $tablet) {
     &.weight,
     &.height,
@@ -127,6 +128,10 @@
       font-size: .9rem;
       color: rgba(0, 0, 0, 0.5);
       user-select: none;
+    }
+
+    &.input-error + .unit {
+      color: $primary;
     }
   }
 
