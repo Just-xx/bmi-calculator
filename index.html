@@ -15,26 +15,26 @@
             <h1 class="hero-title">BMI Calculator</h1>
             <p class="hero-p">The Body Mass Index (BMI) Calculator can be used to calculate BMI value and corresponding weight status while taking age into consideration. Use the "Metric Units" tab for the International System of Units or the "Other Units" tab to convert units into either US or metric units. Note that the calculator also computes the Ponderal Index in addition to BMI, both of which are discussed below in detail.</p>
           </div>
-          <img src="/illustration.svg" class="illustration" alt="medic">
+          <img src="/illustration.svg" draggable="false" class="illustration" alt="medic">
           <div class="decoration">
-            <span><img src="/circles_var1.svg" alt=""></span>
-            <span><img src="/circles_var2.svg" alt=""></span>
-            <span><img src="/dots_var1.svg" alt=""></span>
-            <span><img src="/dots_var2.svg" alt=""></span>
+            <span><img draggable="false" src="/circles_var1.svg" alt=""></span>
+            <span><img draggable="false" src="/circles_var2.svg" alt=""></span>
+            <span><img draggable="false" src="/dots_var1.svg" alt=""></span>
+            <span><img draggable="false" src="/dots_var2.svg" alt=""></span>
             <span class="deco-mobile"><img src="/circles_var1.svg" alt=""></span>
             <span class="deco-mobile"><img src="/dots_var2.svg" alt=""></span>
           </div>
         </section>
         <form class="calc-container">
-          <main class="calc-box">
+          <main class="calc-box" id="calculator">
             <div class="input gender">
               <div class="radio-legend">Gender</div>
               <div class="radio-option">
-                <input type="radio" name="gender" id="male">
+                <input type="radio" name="gender" id="male" value="male" checked>
                 <label for="male">Male</label>
               </div>
               <div class="radio-option">
-                <input type="radio" name="gender" id="female">
+                <input type="radio" name="gender" id="female" value="female">
                 <label for="female">Female</label>
               </div>
             </div>
@@ -66,6 +66,15 @@
                 <li style="--dot-clr: #691461;">35 - 39.99 - II degree of obesity</li>
                 <li style="--dot-clr: #320A29;">over 40 - extreme obesity</li>
               </ul>
+            </div>
+          </div>
+          <div class="result-box" id="result">
+            <div class="result-text-wrapper">
+              <div class="result-text">
+                <span>Your BMI: </span>
+                <span class="result-number">24.4</span>
+              </div>
+              <div class="range-text">18.5 - 24.99 - correct value</div>
             </div>
           </div>
           <button class="btn">Calculate</button>
