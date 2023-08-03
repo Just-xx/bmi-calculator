@@ -6,7 +6,7 @@
   width: auto;
   flex-grow: 1;
   grid-template-columns: [btn-start] 3fr 4fr [btn-end];
-  grid-template-rows: auto [btn-start] 3rem [btn-end];
+  grid-template-rows: auto [btn-start] 3.5rem [btn-end];
   gap: 25px;
 
   & > * { border-radius: 6px; }
@@ -26,7 +26,7 @@
   border: 1px solid var(--box-str-clr);
   border-top-color: var(--primary);
   border-top-width: 2px;
-  padding: 40px 80px;
+  padding: 40px 3.8rem;
   transition: transform 160ms ease-in-out, opacity 160ms ease-in-out;
   opacity: 1;
   transform: scale(1);
@@ -62,8 +62,8 @@
   cursor: pointer;
   transition: background-color 80ms ease-in-out;
 
-  @media screen and (max-width: $desktop-s) {
-    grid-column: auto;
+  @media screen and (max-width: $mobile-l) {
+    font-size: 1.2rem;
   }
 }
 
